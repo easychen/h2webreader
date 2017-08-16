@@ -1,10 +1,10 @@
 ## H2 Book Reader
 
-H2 Book 是一种全新的对话式图书格式。它采用类剧本的方式来展现故事、描述事实，又非常接近于我们平时使用的聊天软件，让内容读起来可以更为轻松。
+H2 Book 是一种全新的对话式图书格式。它采用类剧本的方式来展现故事、描述事实，又非常接近于我们平时使用的聊天软件，所以读起来更为轻松。
 
 [http://wt.ftqq.com/read/002](点这里感受下)
 
-访问 [http://wt.ftqq.com](wt.ftqq.com) 可以在线编写 H2 Book的内容，并下载为 h2zip 格式的文件。而 H2 Book Reader 则复杂读取 h2zip 并展现出来。
+访问 [http://wt.ftqq.com](wt.ftqq.com) 可以在线编写 H2 Book的内容，并下载为 h2zip 格式的文件。而 H2 Book Reader（即本项目）则负责读取 h2zip 并展现。
 
 ### 使用方法
 
