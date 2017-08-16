@@ -1,0 +1,182 @@
+html
+{
+  /* background:#f2f2f2; */
+}
+
+.BookContainer
+{
+  max-width: 400px;
+  height:100vh;
+  display: flex;
+  background:#f2f2f2;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  /* border-left:1px solid #eee;
+  border-right:1px solid #eee; */
+}
+
+.TheTalkList
+{
+  flex:4;
+  padding:10px;
+  overflow-y: scroll;
+  font-size: 14px;
+}
+
+.TheTalkList li
+{
+  display: block;
+
+}
+
+.TheTouthPad
+{
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:200px;
+  color:#aaa;
+  cursor: pointer;
+}
+
+.TheVoiceTalk
+{
+  display: flex;
+  justify-content:center;
+
+  margin-top: 10px;
+
+
+}
+
+.TheVoiceTalkText
+{
+  display: inline-block;
+  padding:8px;
+  border-radius: 3px;
+  max-width: 200px;
+  background-color: #aaa;
+  color:white;
+  word-break: break-all;
+}
+
+.TheTalkLine
+{
+  display: flex;
+  margin-top:10px;
+}
+
+.TheTalkLine.Right
+{
+  flex-direction: row-reverse;
+}
+
+
+.TheTalkLine .TheUsername
+{
+  font-size: 14px;
+  color:#666;
+  margin-bottom: 2px;
+}
+
+.TheTalkLine.Right .TheUsername
+{
+  text-align: right;
+}
+
+.TheTalkLine .TheAvatar
+{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+}
+
+.TheTalkLine.Right .TheAvatar
+{
+    margin-left:10px;
+}
+
+.TheTalkLine.Left .TheAvatar
+{
+    margin-right:10px;
+}
+
+
+.TheTalkLine .TheAvatar>img
+{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+}
+
+.TheTalkLine .TheText
+{
+    padding:8px;
+    border-radius: 3px;
+    max-width: 200px;
+    word-break: break-all;
+    position: relative;
+}
+
+
+.TheTalkLine.Right .TheText
+{
+  background-color: #4990E2;
+  color:white;
+}
+
+.TheTalkLine.Right  .TheTextArrow
+{
+  position: absolute;
+  color:#4990E2;
+  right: -6px;
+  top: 0px;
+}
+
+.TheTalkLine.Left  .TheTextArrow
+{
+  position: absolute;
+  color:white;
+  left: -6px;
+  top: 0px;
+}
+
+.TheTalkLine.Left .TheText
+{
+  background-color:white;
+  color:#4990E2;
+}
+
+.Intro
+{
+  padding:20px;
+  color: #4990E2;
+  text-align: center;
+}
+
+.TheTouthPad span.star
+{
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, .2);                                 
+}
