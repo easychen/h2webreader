@@ -180,3 +180,44 @@ html
                                   supported by Chrome and Opera */
   -webkit-tap-highlight-color:  rgba(255, 255, 255, .2);                                 
 }
+
+a { color:#4990E2;text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+.TalkTextBox
+{
+
+}
+
+.TalkTextBox p
+{
+  line-height: 150%;
+  margin: 0px;
+}
+
+.TalkTextBox h1,
+.TalkTextBox h2,
+.TalkTextBox h3,
+.TalkTextBox h4,
+.TalkTextBox h5,
+.TalkTextBox h6
+{
+  margin: 0px;
+}
+
+.TalkTextBox img
+{
+  max-width: 100%;
+}
+
+.TalkTextBox ul,
+.TalkTextBox ol
+{
+  padding: 0px;
+}
+
+.TalkTextBox ul > li,
+.TalkTextBox ol > li
+{
+  list-style: decimal inside;
+}

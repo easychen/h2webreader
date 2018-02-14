@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import Reader from './Reader';
+import BookList from './BookList';
 
 export default class App extends Component 
 {
@@ -13,7 +14,10 @@ export default class App extends Component
   render()
   {
       return <Router>
-        <Route exact path="/:bookid?" component={Reader}/>
+        <div>
+          <Route exact path="/:bookid" component={Reader}/>
+          <Route exact path="/" component={BookList}/>
+        </div>
       </Router>
   }
 }

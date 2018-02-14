@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import JSZip from 'jszip';
 import JSZipUtils from 'jszip-utils';
+import { Link } from 'react-router-dom';
+import ReactMarkdown from "react-markdown";
 
 @withRouter
 export default class Reader extends Component
@@ -19,7 +21,7 @@ export default class Reader extends Component
         if( this.props.match.params.bookid )
             bookid = this.props.match.params.bookid;
         
-        const bookpath = '/books/'+bookid+'.h2zip';
+        const bookpath = 'books/'+bookid+'.h2zip';
 
         console.log( bookpath );
 
@@ -49,6 +51,9 @@ export default class Reader extends Component
                     } );
 
                     this.setState( { "roles":roles_array , "talks":jsondata.talks } );
+
+                    if( jsondata.title && window.document && window.document.title ) 
+                            window.document.title = jsondata.title;
                 }                
             }
         });
@@ -102,7 +107,7 @@ export default class Reader extends Component
                         </div>
                         <div className="TheText">
                         <span className="TheTextArrow">▶︎</span>
-                            <div  dangerouslySetInnerHTML={{'__html':this.nl2br(item.talk)}}/>
+                            <div className="TalkTextBox"><ReactMarkdown source={item.talk}/></div>
                         </div>
                     </div>
                 </div> }
@@ -117,7 +122,7 @@ export default class Reader extends Component
                         </div>
                         <div className="TheText Left">
                             <span className="TheTextArrow">◀︎</span>
-                            <div  dangerouslySetInnerHTML={{'__html':this.nl2br(item.talk)}}/>
+                                <div className="TalkTextBox"><ReactMarkdown source={item.talk}/></div>
                         </div>
                     </div>
                 </div> }
@@ -129,7 +134,7 @@ export default class Reader extends Component
         </ul>
         <div className="TheTouthPad noselect" onClick={()=>this._add_talk()}>
         { this.state.talks.length > 0  && <span className="star">✦</span> } 
-        { this.state.talks.length < 1  && <span>~ End ~</span> } 
+        { this.state.talks.length < 1  && <Link to='/'>已读完，回目录</Link> } 
         </div>
     </div>
     }
