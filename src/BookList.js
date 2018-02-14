@@ -42,7 +42,7 @@ export default class BookList extends Component
         const books = this.state.books;
         
         return <div className="ListContainer">
-            <h2>氢书列表</h2>
+            <h2>氢书目录</h2>
             <ul>
             { books.length > 0 && books.map((item)=>{
                 // console.log( item );
