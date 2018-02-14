@@ -11,17 +11,18 @@ export default class Reader extends Component
     state = { 
         "roles":[],
         "talks":[],
-        "show_talks":[]
+        "show_talks":[],
+        "loading":true
     }
     
     componentDidMount()
     {
-        let bookid = '001';
+        let bookurl = 'http://p4.cdn.img9.top/ipfs/QmPhoDcyvuMNXPhwSG5w8awTiKSp9f3rKbXi9sGamSCejz?4.h2zip';
         
-        if( this.props.match.params.bookid )
-            bookid = this.props.match.params.bookid;
-        
-        const bookpath = 'books/'+bookid+'.h2zip';
+        if( this.props.match.params.bookurl )
+            bookurl = decodeURIComponent(this.props.match.params.bookurl);
+
+        const bookpath = bookurl;
 
         console.log( bookpath );
 
@@ -50,7 +51,7 @@ export default class Reader extends Component
                         return true;
                     } );
 
-                    this.setState( { "roles":roles_array , "talks":jsondata.talks } );
+                    this.setState( { "roles":roles_array , "talks":jsondata.talks,"loading":false } );
 
                     if( jsondata.title && window.document && window.document.title ) 
                             window.document.title = jsondata.title;
@@ -134,7 +135,8 @@ export default class Reader extends Component
         </ul>
         <div className="TheTouthPad noselect" onClick={()=>this._add_talk()}>
         { this.state.talks.length > 0  && <span className="star">✦</span> } 
-        { this.state.talks.length < 1  && <Link to='/'>已读完，回目录</Link> } 
+        { this.state.talks.length < 1 && this.state.loading  && <span className="star">Loading...</span> } 
+        { this.state.talks.length < 1 && !this.state.loading  && <Link to='/'>已读完，回目录</Link> } 
         </div>
     </div>
     }

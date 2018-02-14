@@ -12,13 +12,20 @@ function readTextFile(file, callback) {
         }
     }
     rawFile.send(null);
-}
+  }
 
 @withRouter
 export default class BookList extends Component
 {
     state = { 
-        "books":[]
+        "books":[],
+        "bookurl":""
+    }
+
+    doJump()
+    {
+        this.props.history.push('/'+encodeURIComponent( this.state.bookurl ));
+        //console.log( this.props );
     }
     
     componentDidMount()
@@ -34,13 +41,21 @@ export default class BookList extends Component
     {
         const books = this.state.books;
         
-        return <div className="BookContainer">
+        return <div className="ListContainer">
+            <h2>氢书列表</h2>
             <ul>
             { books.length > 0 && books.map((item)=>{
                 // console.log( item );
-                return <li key={item.bookid}><Link to={item.bookid}>{item.name}</Link></li>
+                return <li key={item.bookid}><Link to={'/'+encodeURIComponent(item.bookurl)}>{item.name}</Link></li>
             }) }
             </ul>
+            <div className="JumpBox">
+            <p>
+            <input type="text"  placeholder="输入h2zip文件的url" value={this.state.bookurl} onChange={ ( evt )=>{ this.setState( { "bookurl" : evt.target.value } ) } }/></p>
+            <p>
+            <button onClick={()=>{this.doJump()}}>跳转</button></p>
+            </div>
+            
         </div>;
     }
 }

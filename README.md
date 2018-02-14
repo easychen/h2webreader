@@ -1,4 +1,6 @@
-## H2 Book Reader
+## H2 Book Reader  URL直读版
+
+> 此版本支持在 URL 中直接传递 h2zip 文件地址，进行实时阅读。存放 h2zip 的服务器需要支持跨域引用。不会搭建服务器的同学可以使用 ipfs 图床（后有说明）。
 
 H2 Book 是一种类剧本式图书格式。它采用对话和场景来展现故事、描述事实，又非常接近于我们平时使用的聊天软件，所以读起来更为轻松。
 
@@ -13,54 +15,15 @@ H2 Book 是一种类剧本式图书格式。它采用对话和场景来展现故
 - 到 [wt.ftqq.com](http://wt.ftqq.com) 编写书籍内容。
 - 点编辑器右侧的「存到电脑」获得 `*.h2zip` 文件。
 
-#### 制作阅读器
+#### 上传 h2zip 文件
 
-```
-git clone https://github.com/easychen/h2webreader
-cd h2webreader
-yarn 
-```
+访问 IPFS 的图床网站，比如这个 https://img9.top/ ，将 h2zip 上传，会得到一个地址，比如：`http://p4.cdn.img9.top/ipfs/QmPhoDcyvuMNXPhwSG5w8awTiKSp9f3rKbXi9sGamSCejz?4.h2zip`
 
-然后将之前下载 `*.h2zip` 文件改名为 `002.h2zip` 放入 `public/books` 目录下。
 
-```
-yarn start
-```
-
-打开浏览器访问 `http://localhost:3000/002` 就可以阅读了。注意目录名称要和 `.h2zip` 文件名一致（不包括后缀）。这时候可以修改 `App.css` 来定制阅读界面的样式。
+将该地址填入首页底部的 输入框，点跳转即可进行阅读。
 
 #### 文章列表
 
-修改 books/index.json 可以修改首页显示的文章列表。
-
-#### 发布阅读器
-
-定制完成后，运行 
-
-```
-yarn build
-```
-
-会在根下生成一个 `build` 目录，将目录下所有内容放到一个服务器的 web 目录下就OK了。注意本项目只附带了 apache 的 rewrite 文件，其他服务器需自己添加。
-
-Nginx 参考：
-
-https://stackoverflow.com/questions/36304302/how-can-i-configure-react-router-to-with-nginx-cherrypy-and-my-current-reactjs-a
-```
-location / {
-    root /var/www;
-    index index.html;
-
-    try_files $uri $uri/ /index.html;
-}
-```  
-
-#### 追加图书
-
-新写了图书，只要将 `.h2zip` 文件放到服务器 web 目录下的 `books` 之下，就可以通过 url （ http://domian/bookname ） 进行访问了。
-
-### License
-
-MIT 
+修改 books/index.json 可以改变首页显示的文章列表。
 
 

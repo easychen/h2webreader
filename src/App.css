@@ -16,6 +16,20 @@ html
   border-right:1px solid #eee; */
 }
 
+.ListContainer
+{
+  max-width: 400px;
+  display: flex;
+  background:#f2f2f2;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding:20px;
+  height:100vh;
+  /* border-left:1px solid #eee;
+  border-right:1px solid #eee; */
+}
+
 .TheTalkList
 {
   flex:4;
@@ -220,4 +234,18 @@ a:hover{ text-decoration: underline; }
 .TalkTextBox ol > li
 {
   list-style: decimal inside;
+}
+
+.JumpBox input
+{
+  width:calc( 100% - 20px );
+  min-height:40px!important;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.JumpBox button
+{
+  width:100%;
+  height:40px!important;
 }
