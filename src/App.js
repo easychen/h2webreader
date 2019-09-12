@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-import Reader from './Reader';
-import BookList from './BookList';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-export default class App extends Component 
-{
-  
+import Login from './screen/Login';
+import Reader from './screen/Reader'; 
+import List from './screen/List'; 
 
-  render()
-  {
-      return <Router>
-        <div>
-          <Route exact path="/:bookid" component={Reader}/>
-          <Route exact path="/" component={BookList}/>
-        </div>
-      </Router>
+
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/read/:id" component={Reader} />
+          <Route path="/" component={List} />
+          
+        </Switch>
+      </Router>  
+    );
   }
 }
 
+export default App;
