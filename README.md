@@ -1,6 +1,9 @@
 ## 方糖氢小说阅读器
 
-⚠️ 已经更新为V2，内置了头像和小说元信息，不再兼容之前的格式，[V1版本见这里](https://github.com/easychen/h2webreader/tree/v1)
+⚠️ 已经更新为V2，内置了头像和小说元信息，不再兼容之前的格式，
+
+- [V1版本见这里](https://github.com/easychen/h2webreader/tree/v1)
+- 支持 PHP 上传的版本 https://github.com/easychen/h2reader-host
 
 ---
 
